@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+</head>
+<body>
+    <h1>Tutorial</h1>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message.content }} - {{ message.category.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <form method="POST" action="/add" >
+        <input type="text" name="content">
+
+        <select name="category">
+        {% for category in categories %}
+          <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <form method="POST" action="/add_category" >
+        <input type="text" name="category" required="true">
+        <input type="submit" value="Submit">
+    </form>
+
+
+
+</body>
+</html>
